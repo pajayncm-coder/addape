@@ -73,7 +73,7 @@ export default function BookingModification() {
   };
 
   const calculateNewTotal = () => {
-    const baseCost = parseInt(booking.duration) * 33300; // ₹33,300 per day
+    const baseCost = parseInt(booking.duration) * 33300; // $33,300 per day
     const deliveryFee = 150;
     const insurance = 50;
     return baseCost + deliveryFee + insurance;
@@ -82,19 +82,19 @@ export default function BookingModification() {
   const getChangeSummary = () => {
     const changes = [];
     if (booking.startDate.getTime() !== originalBooking.startDate.getTime()) {
-      changes.push(`Start date: ₹{format(originalBooking.startDate, "MMM dd")} → ₹{format(booking.startDate, "MMM dd")}`);
+      changes.push(`Start date: ${format(originalBooking.startDate, "MMM dd")} → ${format(booking.startDate, "MMM dd")}`);
     }
     if (booking.endDate.getTime() !== originalBooking.endDate.getTime()) {
-      changes.push(`End date: ₹{format(originalBooking.endDate, "MMM dd")} → ₹{format(booking.endDate, "MMM dd")}`);
+      changes.push(`End date: ${format(originalBooking.endDate, "MMM dd")} → ${format(booking.endDate, "MMM dd")}`);
     }
     if (booking.duration !== originalBooking.duration) {
-      changes.push(`Duration: ₹{originalBooking.duration} days → ₹{booking.duration} days`);
+      changes.push(`Duration: ${originalBooking.duration} days → ${booking.duration} days`);
     }
     if (booking.deliveryTime !== originalBooking.deliveryTime) {
-      changes.push(`Delivery time: ₹{originalBooking.deliveryTime} → ₹{booking.deliveryTime}`);
+      changes.push(`Delivery time: ${originalBooking.deliveryTime} → ${booking.deliveryTime}`);
     }
     if (booking.pickupTime !== originalBooking.pickupTime) {
-      changes.push(`Pickup time: ₹{originalBooking.pickupTime} → ₹{booking.pickupTime}`);
+      changes.push(`Pickup time: ${originalBooking.pickupTime} → ${booking.pickupTime}`);
     }
     return changes;
   };
@@ -105,11 +105,11 @@ export default function BookingModification() {
     
     toast({
       title: "Booking Updated",
-      description: `Your booking has been successfully modified. ₹{
+      description: `Your booking has been successfully modified. ${
         priceDifference > 0 
-          ? `Additional charge: ₹₹{priceDifference}` 
+          ? `Additional charge: $${priceDifference}` 
           : priceDifference < 0 
-          ? `Refund: ₹₹{Math.abs(priceDifference)}` 
+          ? `Refund: $${Math.abs(priceDifference)}` 
           : "No price change"
       }`,
     });
@@ -178,7 +178,7 @@ export default function BookingModification() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Original Total</p>
-                  <p className="font-semibold">₹{originalBooking.totalAmount}</p>
+                  <p className="font-semibold">${originalBooking.totalAmount}</p>
                 </div>
               </CardContent>
             </Card>
@@ -293,26 +293,26 @@ export default function BookingModification() {
                     <div className="space-y-1 text-sm">
                       <div className="flex justify-between">
                         <span>Rental Cost ({booking.duration} days)</span>
-                        <span>₹{parseInt(booking.duration) * 400}</span>
+                        <span>${parseInt(booking.duration) * 400}</span>
                       </div>
                       <div className="flex justify-between">
                         <span>Delivery Fee</span>
-                        <span>₹12,495</span>
+                        <span>$12,495</span>
                       </div>
                       <div className="flex justify-between">
                         <span>Insurance</span>
-                        <span>₹4,165</span>
+                        <span>$4,165</span>
                       </div>
                       <Separator />
                       <div className="flex justify-between font-semibold">
                         <span>New Total</span>
-                        <span>₹{calculateNewTotal()}</span>
+                        <span>${calculateNewTotal()}</span>
                       </div>
                       <div className="flex justify-between text-sm">
                         <span>Price Difference</span>
                         <span className={calculateNewTotal() - originalBooking.totalAmount >= 0 ? "text-red-600" : "text-green-600"}>
                           {calculateNewTotal() - originalBooking.totalAmount >= 0 ? "+" : ""}
-                          ₹{calculateNewTotal() - originalBooking.totalAmount}
+                          ${calculateNewTotal() - originalBooking.totalAmount}
                         </span>
                       </div>
                     </div>
