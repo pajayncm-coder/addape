@@ -133,8 +133,8 @@ export default function BookingTemplates() {
   const duplicateTemplate = (template: any) => {
     const newTemplate = {
       ...template,
-      id: `TPL-₹{Date.now()}`,
-      name: `₹{template.name} (Copy)`,
+      id: `TPL-${Date.now()}`,
+      name: `${template.name} (Copy)`,
       usageCount: 0,
       lastUsed: new Date().toISOString().split('T')[0]
     };
@@ -165,7 +165,7 @@ export default function BookingTemplates() {
     }
 
     const template = {
-      id: `TPL-₹{Date.now()}`,
+      id: `TPL-${Date.now()}`,
       ...newTemplate,
       tags: newTemplate.tags.split(",").map(tag => tag.trim()).filter(Boolean),
       estimatedCost: 2500, // This would be calculated based on equipment
@@ -389,7 +389,7 @@ export default function BookingTemplates() {
                         onClick={() => toggleFavorite(template.id)}
                         title="Toggle Favorite"
                       >
-                        <Star className={`w-4 h-4 ₹{template.isFavorite ? 'fill-yellow-400 text-yellow-400' : ''}`} />
+                        <Star className={`w-4 h-4 ${template.isFavorite ? 'fill-yellow-400 text-yellow-400' : ''}`} />
                       </Button>
                       <Button variant="ghost" size="icon" title="Edit">
                         <Edit className="w-4 h-4" />
@@ -461,7 +461,7 @@ export default function BookingTemplates() {
                         </div>
                         <div>
                           <span className="text-muted-foreground">Est. cost: </span>
-                          <span className="font-semibold">₹{template.estimatedCost}</span>
+                          <span className="font-semibold">${template.estimatedCost}</span>
                         </div>
                       </div>
                     </div>
