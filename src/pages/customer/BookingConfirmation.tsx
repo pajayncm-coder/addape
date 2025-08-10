@@ -133,20 +133,20 @@ export default function BookingConfirmation() {
             <div className="space-y-2">
               <div className="flex justify-between">
                 <span>Rental Cost ({booking.duration})</span>
-                <span>₹{booking.totalAmount - 200}</span>
+                <span>${booking.totalAmount - 200}</span>
               </div>
               <div className="flex justify-between">
                 <span>Delivery Fee</span>
-                <span>₹12,495</span>
+                <span>$12,495</span>
               </div>
               <div className="flex justify-between">
                 <span>Insurance</span>
-                <span>₹4,165</span>
+                <span>$4,165</span>
               </div>
               <Separator />
               <div className="flex justify-between font-semibold text-lg">
                 <span>Total Paid</span>
-                <span>₹{booking.totalAmount}</span>
+                <span>${booking.totalAmount}</span>
               </div>
             </div>
           </CardContent>
