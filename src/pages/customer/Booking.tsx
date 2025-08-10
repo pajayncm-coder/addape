@@ -131,7 +131,7 @@ const Booking = () => {
                     <SelectContent>
                       {durationOptions.map((option) => (
                         <SelectItem key={option.value} value={option.value}>
-                          {option.label} - ₹{option.rate}
+                          {option.label} - ${option.rate}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -229,12 +229,12 @@ const Booking = () => {
                     </div>
                     <div className="flex justify-between">
                       <span>Rate:</span>
-                      <span>₹{duration ? durationOptions.find(opt => opt.value === duration)?.rate : 0}</span>
+                      <span>${duration ? durationOptions.find(opt => opt.value === duration)?.rate : 0}</span>
                     </div>
                     <Separator />
                     <div className="flex justify-between font-semibold text-lg">
                       <span>Total:</span>
-                      <span>₹{calculateTotal()}</span>
+                      <span>${calculateTotal()}</span>
                     </div>
                   </div>
                 </div>
