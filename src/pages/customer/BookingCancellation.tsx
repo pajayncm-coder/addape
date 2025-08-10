@@ -91,7 +91,7 @@ export default function BookingCancellation() {
     setTimeout(() => {
       toast({
         title: "Booking Cancelled",
-        description: `Your booking has been cancelled. Refund of ₹₹{refundInfo.refundAmount} will be processed within 3-5 business days.`,
+        description: `Your booking has been cancelled. Refund of $${refundInfo.refundAmount} will be processed within 3-5 business days.`,
       });
       navigate("/customer/orders");
     }, 2000);
@@ -158,7 +158,7 @@ export default function BookingCancellation() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Total Amount</p>
-                  <p className="font-semibold">₹{booking.totalAmount}</p>
+                  <p className="font-semibold">${booking.totalAmount}</p>
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Status</p>
@@ -201,16 +201,16 @@ export default function BookingCancellation() {
                   <div className="space-y-2">
                     <div className="flex justify-between">
                       <span>Original Amount</span>
-                      <span>₹{booking.totalAmount}</span>
+                      <span>${booking.totalAmount}</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Cancellation Fee</span>
-                      <span className="text-red-600">-₹{refundInfo.cancellationFee}</span>
+                      <span className="text-red-600">-${refundInfo.cancellationFee}</span>
                     </div>
                     <Separator />
                     <div className="flex justify-between font-semibold text-lg">
                       <span>Refund Amount</span>
-                      <span className="text-green-600">₹{refundInfo.refundAmount}</span>
+                      <span className="text-green-600">${refundInfo.refundAmount}</span>
                     </div>
                   </div>
                   
