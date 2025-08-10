@@ -13,7 +13,7 @@ import {
   MapPin, 
   Star, 
   Calendar,
-  DollarSign,
+  IndianrupeeSign,
   Truck,
   Settings,
   Heart,
@@ -184,7 +184,7 @@ const Search = () => {
                 {/* Price Range */}
                 <div>
                   <h4 className="font-semibold mb-3">
-                    Price Range (${priceRange[0]} - ${priceRange[1]}/day)
+                    Price Range (₹{priceRange[0]} - ₹{priceRange[1]}/day)
                   </h4>
                   <Slider
                     value={priceRange}
@@ -227,8 +227,8 @@ const Search = () => {
                   <div className="space-y-2">
                     {[4, 3, 2, 1].map((rating) => (
                       <div key={rating} className="flex items-center space-x-2">
-                        <Checkbox id={`rating-${rating}`} />
-                        <label htmlFor={`rating-${rating}`} className="text-sm text-foreground flex items-center">
+                        <Checkbox id={`rating-₹{rating}`} />
+                        <label htmlFor={`rating-₹{rating}`} className="text-sm text-foreground flex items-center">
                           {rating}+ <Star className="h-3 w-3 ml-1 fill-current" />
                         </label>
                       </div>
@@ -323,7 +323,7 @@ const Search = () => {
                     <div className="flex justify-between items-center">
                       <div>
                         <span className="text-2xl font-bold text-primary">
-                          ${item.pricePerDay.toLocaleString()}
+                          ₹{item.pricePerDay.toLocaleString()}
                         </span>
                         <span className="text-sm text-muted-foreground">/day</span>
                       </div>
