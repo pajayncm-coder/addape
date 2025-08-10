@@ -112,7 +112,7 @@ export default function BookingCalendar() {
                 "text-xs p-1 rounded truncate",
                 getStatusColor(booking.status)
               )}
-              title={`${booking.equipment} - ${booking.location}`}
+              title={`₹{booking.equipment} - ₹{booking.location}`}
             >
               {booking.equipment}
             </div>
@@ -280,7 +280,7 @@ export default function BookingCalendar() {
                             <Button
                               variant="ghost"
                               size="sm"
-                              onClick={() => navigate(`/customer/order/${booking.id}`)}
+                              onClick={() => navigate(`/customer/order/₹{booking.id}`)}
                             >
                               <Eye className="w-4 h-4" />
                             </Button>
